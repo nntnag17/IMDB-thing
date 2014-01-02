@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>687</width>
+    <height>662</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="lEdit_movieName"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="CBoxYear">
+        <property name="focusPolicy">
+         <enum>Qt::TabFocus</enum>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::CustomContextMenu</enum>
+        </property>
+        <property name="maxCount">
+         <number>1000</number>
+        </property>
+        <property name="insertPolicy">
+         <enum>QComboBox::InsertAtBottom</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="bt_go">
+        <property name="text">
+         <string>Go</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="lb_title">
+            <property name="font">
+             <font>
+              <family>Century Schoolbook L</family>
+              <pointsize>24</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 85, 0);
+font: 75 24pt &quot;Century Schoolbook L&quot;;</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>280</height>
+             </size>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>418</width>
+               <height>298</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QGroupBox" name="groupBox">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>400</width>
+                  <height>280</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="title">
+                 <string/>
+                </property>
+                <layout class="QGridLayout" name="gridLayout">
+                 <item row="7" column="1">
+                  <widget class="QLabel" name="lb_type">
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="left_year">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Year:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="year">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="left_genre">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Genre:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLabel" name="genre">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="left_runtime">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Runtime:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QLabel" name="runtime">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="left_actors">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Starring</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QLabel" name="actors">
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QLabel" name="left_director">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Directed by </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="1">
+                  <widget class="QLabel" name="director">
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QLabel" name="left_awards">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Awards:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="QLabel" name="awards">
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="0">
+                  <widget class="QLabel" name="left_lb_type">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Movie/Series</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QLabel" name="left_country">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Country</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="1">
+                  <widget class="QLabel" name="country">
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="0">
+                  <widget class="QLabel" name="left_language">
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>Language</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="1">
+                  <widget class="QLabel" name="language">
+                   <property name="font">
+                    <font>
+                     <family>Serif</family>
+                     <pointsize>13</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 13pt &quot;Serif&quot;;
+color: rgb(100, 100, 100);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+                <zorder>year</zorder>
+                <zorder>genre</zorder>
+                <zorder>runtime</zorder>
+                <zorder>actors</zorder>
+                <zorder>director</zorder>
+                <zorder>awards</zorder>
+                <zorder>lb_type</zorder>
+                <zorder>country</zorder>
+                <zorder>left_year</zorder>
+                <zorder>left_genre</zorder>
+                <zorder>left_runtime</zorder>
+                <zorder>left_actors</zorder>
+                <zorder>left_director</zorder>
+                <zorder>left_awards</zorder>
+                <zorder>left_lb_type</zorder>
+                <zorder>left_country</zorder>
+                <zorder>left_language</zorder>
+                <zorder>language</zorder>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="plot">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Serif</family>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(254, 255, 231);
+color: rgb(107, 107, 107);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="votes">
+            <property name="font">
+             <font>
+              <family>Century Schoolbook L</family>
+              <pointsize>16</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="goToWebsite">
+            <property name="text">
+             <string>Take me to website</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetNoConstraint</enum>
+          </property>
+          <item>
+           <widget class="QLabel" name="lb_rating">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Serif</family>
+              <pointsize>45</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-color: rgb(145, 145, 145);
+background-color: rgb(221, 221, 221);
+</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="lineWidth">
+             <number>5</number>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;RATED&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lb_rated">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Serif</family>
+              <pointsize>28</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-color: rgb(145, 145, 145);
+background-color: rgb(188, 188, 188);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="lineWidth">
+             <number>5</number>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;RATED&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="gfxView_poster">
+          <property name="backgroundBrush">
+           <brush brushstyle="Dense2Pattern">
+            <color alpha="255">
+             <red>102</red>
+             <green>97</green>
+             <blue>95</blue>
+            </color>
+           </brush>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>687</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_Save"/>
+    <addaction name="actionSave_as_html"/>
+    <addaction name="action_Load"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_About">
+    <property name="title">
+     <string>&amp;Preferences</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_About_2">
+    <property name="title">
+     <string>&amp;About</string>
+    </property>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_About"/>
+   <addaction name="menu_About_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Save">
+   <property name="text">
+    <string>&amp;Save as pdf</string>
+   </property>
+  </action>
+  <action name="actionSave_as_html">
+   <property name="text">
+    <string>Save as &amp;html</string>
+   </property>
+  </action>
+  <action name="action_Load">
+   <property name="text">
+    <string>&amp;Load file</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>lEdit_movieName</tabstop>
+  <tabstop>CBoxYear</tabstop>
+  <tabstop>bt_go</tabstop>
+  <tabstop>goToWebsite</tabstop>
+  <tabstop>gfxView_poster</tabstop>
+  <tabstop>plot</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
