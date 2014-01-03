@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'IMDB_Thing.ui'
 #
-# Created: Thu Jan  2 00:00:01 2014
+# Created: Thu Jan  2 22:56:51 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!

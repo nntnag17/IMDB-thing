@@ -1,5 +1,3 @@
-
-
 import json
 import urllib2
 import requests
@@ -9,6 +7,7 @@ from PyQt4.QtGui  import *
 from PyQt4.QtCore import *
 from datetime import date
 import webbrowser
+from GoogleSuggest import GoogleSuggest
 
 
 class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
@@ -16,14 +15,18 @@ class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 	infoDict = {}
 	title = ""
 	windowImage = ""
+	completer = QCompleter()
+	model = QStringListModel()
+	timer = QTimer()
 
-	
+
+	def startTimer(self):
+		self.timer.start()
 	def __init__(self,parent=None):
 		''' initializer function '''
 		super(IMDB_Thing_Main_Window,self).__init__(parent)
 		self.setupUi(self)
 		self.updateUi()
-
 	def hideEverything(self):
 		
 		self.lb_rating.hide()
@@ -34,6 +37,26 @@ class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 		self.gfxView_poster.hide()
 		self.lb_rated.hide()
 		self.groupBox.hide()
+
+	def addSuggestion(self):
+		print "blah"
+		q = str(self.lEdit_movieName.text())
+		grabber = GoogleSuggest()
+		l = grabber.read(q)	
+		strlist = l
+		
+		#self.completer = QCompleter(strlist,self.lEdit_movieName)
+		#self.lEdit_movieName.setCompleter(self.completer)
+		
+		#model = QStringListModel(self.completer.model())
+		#model  = self.completer.model()
+		qstrlist = QStringList()
+		for item in strlist:
+			qstrlist.append(item)
+		self.model.setStringList(qstrlist)
+		print l
+		
+
 	def showEverything(self):
 
 		self.plot.show()
@@ -45,6 +68,15 @@ class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 		#self.tblWd_details.show()
 		self.groupBox.show()
 
+
+	def getSuggestions(self,initalString):
+		initalString = str(initalString)
+		suggest_url = "http://suggestqueries.google.com/complete/search?output=toolbar&hl=en&q="
+		if ' ' in initalString:
+			initalString = initalString.replace(' ','%20')
+		suggest_url = suggest_url + initalString
+		xmldata = urllib2.urlopen(suggest_url).read()
+		
 	def setDetails(self):
 		print "dummy"	
 			
@@ -61,24 +93,8 @@ class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 			
 		self.country.setText('<font color=' + color +'>' + jsonValues['Country'] + '</font>')
 		self.language.setText('<font color=' + color +'>' + jsonValues['Language'] + '</font>')
-		'''	
-		self.tblWd_details.setItem(0,0,QTableWidgetItem('Title'))
-		self.tblWd_details.setItem(0,1,QTableWidgetItem(jsonValues['Title']))
-		self.tblWd_details.setItem(1,0,QTableWidgetItem('Year'))
-		self.tblWd_details.setItem(1,1,QTableWidgetItem(jsonValues['Year']))
-		self.tblWd_details.setItem(2,0,QTableWidgetItem('Genre'))
-		self.tblWd_details.setItem(2,1,QTableWidgetItem(jsonValues['Genre']))
-		self.tblWd_details.setItem(3,0,QTableWidgetItem('Runtime'))
-		self.tblWd_details.setItem(3,1,QTableWidgetItem(jsonValues['Runtime']))
-		self.tblWd_details.setItem(4,0,QTableWidgetItem('Actors'))
-		self.tblWd_details.setItem(4,1,QTableWidgetItem(jsonValues['Actors']))
-		self.tblWd_details.setItem(5,0,QTableWidgetItem('Director'))
-		self.tblWd_details.setItem(5,1,QTableWidgetItem(jsonValues['Director']))
-		self.tblWd_details.setItem(6,0,QTableWidgetItem('Awards'))
-		self.tblWd_details.setItem(6,1,QTableWidgetItem(jsonValues['Awards']))
-		self.tblWd_details.setItem(7,0,QTableWidgetItem('Movie/Serial'))
-		self.tblWd_details.setItem(7,1,QTableWidgetItem(jsonValues['Type']))
-		'''
+	
+	
 	def setCBoxYear(self):
 		
 		self.CBoxYear.addItem('unknown')
@@ -87,7 +103,14 @@ class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 		self.CBoxYear.setMaxVisibleItems(10)		
 
 	def updateUi(self):
-		
+		stringList = QStringList()
+		stringList.append("yeh jawaani hai deewani")
+		self.model.setStringList(stringList)
+		self.completer.setModel(self.model)
+		self.completer.setCaseSensitivity(Qt.CaseInsensitive)
+		#self.completer.setCompletionMode(QCompleter.InlineCompletion)
+		self.lEdit_movieName.setCompleter(self.completer)
+		self.lEdit_movieName.installEventFilter(self)
 		self.setWindowTitle(self.title)
 		self.setDetails()
 		self.setCBoxYear()
@@ -98,18 +121,24 @@ class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 		self.hideEverything()
 		self.resize(750,600)
 		self.lb_title.setText("This page is intentionally left blank!")
+		self.timer.setSingleShot(True)
+		self.timer.setInterval(250)
 
 	def makeConnections(self):
+
 
 		self.connect(self.lEdit_movieName, SIGNAL("returnPressed()"),self.getAndUpdateData)
 		self.connect(self.goToWebsite,SIGNAL("clicked()"),self.goToPage)
 		self.connect(self.bt_go,SIGNAL("clicked()"),self.getAndUpdateData)
-
+		self.connect(self.lEdit_movieName, SIGNAL("textEdited(QString)"),self.startTimer)
+		self.connect(self.timer,SIGNAL("timeout()"),self.addSuggestion)
+			
 	def goToPage(self):
 		
 		movie_url = "http://www.imdb.com/title/" + self.infoDict['imdbID']
 		webbrowser.open_new_tab(movie_url)
 		print self.infoDict
+
 
 
 	def getAndUpdateData(self):
