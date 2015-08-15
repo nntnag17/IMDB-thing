@@ -9,7 +9,6 @@ from datetime import date
 import webbrowser
 from GoogleSuggest import GoogleSuggest
 
-
 class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 
 	infoDict = {}
