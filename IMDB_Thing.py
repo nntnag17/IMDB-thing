@@ -39,9 +39,9 @@ class IMDB_Thing_Main_Window(QMainWindow,ui_IMDB_Thing.Ui_MainWindow):
 
 	def addSuggestion(self):
 		print "blah"
-		q = str(self.lEdit_movieName.text())
+		k = str(self.lEdit_movieName.text())
 		grabber = GoogleSuggest()
-		l = grabber.read(q)	
+		l = grabber.read(k)	
 		strlist = l
 		
 		#self.completer = QCompleter(strlist,self.lEdit_movieName)
